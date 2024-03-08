@@ -1,0 +1,5 @@
+name: PandaSpawners
+version: 1.0.0
+main: gg.morphie.pandaspawners.PandaSpawners
+author: Morphie
+api-version: 1.20.4

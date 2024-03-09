@@ -9,8 +9,5 @@
         <module name="PandaSpawners" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="PandaSpawners" target="18" />
-    </bytecodeTargetLevel>
   </component>
 </project>

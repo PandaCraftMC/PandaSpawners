@@ -1,5 +1,10 @@
 name: PandaSpawners
 version: 1.0.0
-main: gg.morphie.pandaspawners.PandaSpawners
+main: morphie.gg.pandaspawners.PandaSpawners
 author: Morphie
-api-version: 1.20.4
+api-version: 1.20
+commands:
+  pandaspawners:
+    description: Main command for PandaSpawners.
+    usage: /<command>
+    aliases: [pspawners, ps]

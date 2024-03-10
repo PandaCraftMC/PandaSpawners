@@ -8,6 +8,8 @@ import org.bukkit.event.Listener;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Messages implements Listener {
     private PandaSpawners plugin;
@@ -57,15 +59,27 @@ public class Messages implements Listener {
 
     private void addDefaults(FileConfiguration cfg) {
         cfg.addDefault("Commands.Header", "&7&m_______________&7[&2&lPandaSpawners&7]&m_______________");
-        cfg.addDefault("Commands.Footer", "&7&m____________________&r &8[&2&l!&8] &7&m____________________");
+        cfg.addDefault("Commands.Footer", "&7&m_____________________&r &8[&2&l!&8] &7&m_____________________");
         cfg.addDefault("Commands.Help", "&a/pspawners &8- &7Shows this text menu.");
         cfg.addDefault("Commands.Levels", "&a/pspawners levels &8- &7Shows spawner upgrade progression.");
-        cfg.addDefault("Commands.GiveItem", "&c&l[Admin] &a/pspawners giveitem <itemname> <player> <amount>");
+        cfg.addDefault("Commands.Spawner", "&c&l[Admin] &a/pspawners spawner <player> <type> <amount>");
+        cfg.addDefault("Commands.Give", "&c&l[Admin] &a/pspawners give <player> <upgradetype> <amount>");
         cfg.addDefault("Commands.Reload", "&c&l[Admin] &a/pspawners reload");
-        cfg.addDefault("Prefix", "&8[&2&lPS&8] &r");
+        cfg.addDefault("Prefix", "&8[&2&lPS&8] &8»&r ");
         cfg.addDefault("ErrorPrefix", "&4[&cX&4] &r");
         cfg.addDefault("NoPermsMessage", "&7You do not have permission to use this command.");
         cfg.addDefault("InvalidArgsMessage", "&7Invalid arguments! &a/ps &7to view all commands.");
+        cfg.addDefault("InvalidSpawnerType", "&7Invalid spawner type. Must be a valid mob type.");
+        cfg.addDefault("InvalidAmount", "&7Invalid integer. Please specify a correct item amount.");
+        cfg.addDefault("InventoryFull", "&7Your inventory is currently too full!");
         cfg.addDefault("ReloadMessage", "&7Plugin has successfully been reloaded!");
+        cfg.addDefault("SpawnerGiveMessage", "&7A &a%TYPE% Spawner &7has been given to you.");
+        cfg.addDefault("UpgraderGiveMessage", "&7A &a%TYPE% Upgrader &7has been given to you.");
+
+        cfg.addDefault("Spawner.Name", "&2&lMob Spawner");
+        List<String> spawner = new ArrayList<String>();
+        spawner.add(" ");
+        spawner.add("&a&l| &7Type&8: &2%TYPE%");
+        cfg.addDefault("Spawner.Lore", spawner);
     }
 }

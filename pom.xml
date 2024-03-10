@@ -44,6 +44,11 @@
             <id>rosewood-repo</id>
             <url>https://repo.rosewooddev.io/repository/public/</url>
         </repository>
+        <repository>
+            <id>codemc-repo</id>
+            <url>https://repo.codemc.org/repository/maven-public/</url>
+            <layout>default</layout>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -58,6 +63,11 @@
             <artifactId>rosestacker</artifactId>
             <version>1.5.17</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>de.tr7zw</groupId>
+            <artifactId>item-nbt-api-plugin</artifactId>
+            <version>2.12.2</version>
         </dependency>
     </dependencies>
 </project>

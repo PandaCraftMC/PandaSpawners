@@ -1,15 +1,19 @@
 package morphie.gg.pandaspawners;
 
+import jdk.jfr.Event;
+import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
 import java.util.List;
 
-public class PandaSpawners extends JavaPlugin {
+public class PandaSpawners extends JavaPlugin implements Listener {
 
     public Messages messagescfg;
+    private Events events;
 
     public void onEnable () {
+        this.events = new Events(this);
         createConfig();
         loadConfigManager();
         getCommand("pandaspawners").setExecutor(new Commands(this));

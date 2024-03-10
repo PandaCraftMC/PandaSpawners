@@ -6,13 +6,26 @@
 #                \/     \/      \/     \/        \/|__|       \/                    \/     \/           \/
 
 # Author: Morphie
+# This is the first spawner the players obtain. From there they will need the spawner upgraders from below.
+BaseSpawnerType: "CHICKEN"
 
-SpawnerUpgrader:
-  ItemName: 'COMPASS'
-  CustomModelID: 0
-  DisplayName: '&2&lSpawner Upgrader'
-  Lore:
-    - '&a&l| &7Right click a spawner OR drag and drop'
-    - '&a&l| &7onto a spawner in your inventory to upgrade!'
-  Progression:
-    - ''
+# NOTE: These are in order of progression. Main parts to detect progression is the number starting at 0 as well as the "Type: MOB_NAME".
+SpawnerUpgraders:
+  0: # start of the progression from the base spawner.
+    Name: "&2&lPig Spawner Upgrader" # Item Display Name
+    Type: "PIG" # Type of spawner upgrader it is
+    Item: "PIG_SPAWN_EGG" # Item for the spawner changer
+    Glow: true # Glow effect on item
+    CustomModelData: 0 # Custom model data for the spawner changer
+    Lore: # Lore for the spawner changer
+      - "&a&l| &7Right&8-&7Click a spawner or drag and drop"
+      - "&a&l| &7onto a spawner in your inventory to upgrade it!"
+  1:
+    Name: "&2&lCow Spawner Upgrader"
+    Type: "COW"
+    Item: "COW_SPAWN_EGG"
+    Glow: true
+    CustomModelData: 0
+    Lore:
+      - "&a&l| &7Right&8-&7Click a spawner or drag and drop"
+      - "&a&l| &7onto a spawner in your inventory to upgrade it!"

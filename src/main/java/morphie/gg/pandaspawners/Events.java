@@ -9,6 +9,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryType;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BlockStateMeta;
 import org.bukkit.plugin.Plugin;
@@ -20,6 +21,15 @@ public class Events implements Listener {
     public Events(PandaSpawners plugin) {
         this.plugin = plugin;
         plugin.getServer().getPluginManager().registerEvents(this, (Plugin) plugin);
+    }
+
+    @EventHandler
+    public void interactEvent(PlayerInteractEvent e) {
+        ItemStack item = e.getItem();
+        NBTItem itemNBT = new NBTItem(item);
+        if (itemNBT.hasKey("upgrader").booleanValue()){
+            e.setCancelled(true);
+        }
     }
 
     @EventHandler

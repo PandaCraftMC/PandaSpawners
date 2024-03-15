@@ -2,7 +2,6 @@ package morphie.gg.pandaspawners;
 
 import de.tr7zw.nbtapi.NBTCompound;
 import de.tr7zw.nbtapi.NBTItem;
-import de.tr7zw.nbtapi.NBTList;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.block.CreatureSpawner;

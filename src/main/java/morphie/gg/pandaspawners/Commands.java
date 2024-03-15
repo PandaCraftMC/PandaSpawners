@@ -44,7 +44,7 @@ public class Commands implements CommandExecutor {
                     Player player = Bukkit.getPlayer(args[1]);
                     if (args[2] != null) {
                         if (args[3] != null) {
-                            new GiveItem(plugin).giveItem(player, "spawner", args[2].toUpperCase(), args[3]);
+                            new GiveItem(plugin).giveItem(player, true, "spawner", args[2].toUpperCase(), args[3]);
                         } else {
                             sender.sendMessage(new Utils(plugin).addColor(plugin.getMessage("ErrorPrefix") + plugin.getMessage("InvalidArgsMessage")));
                         }
@@ -60,7 +60,7 @@ public class Commands implements CommandExecutor {
                     Player player = Bukkit.getPlayer(args[1]);
                     if (args[2] != null) {
                         if (args[3] != null) {
-                            new GiveItem(plugin).giveItem(player, "upgrader", args[2].toUpperCase(), args[3]);
+                            new GiveItem(plugin).giveItem(player, true,"upgrader", args[2].toUpperCase(), args[3]);
                         } else {
                             sender.sendMessage(new Utils(plugin).addColor(plugin.getMessage("ErrorPrefix") + plugin.getMessage("InvalidArgsMessage")));
                         }

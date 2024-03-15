@@ -2,8 +2,8 @@ package morphie.gg.pandaspawners;
 
 import de.tr7zw.nbtapi.NBTCompound;
 import de.tr7zw.nbtapi.NBTItem;
+import de.tr7zw.nbtapi.NBTList;
 import net.md_5.bungee.api.ChatColor;
-import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.CreatureSpawner;
 import org.bukkit.enchantments.Enchantment;
@@ -47,11 +47,15 @@ public class Utils {
             bsm.setBlockState(cs);
             localItemStack.setItemMeta(bsm);
         } else if (type.equalsIgnoreCase("UPGRADER")) {
+            localItemStack.setItemMeta(localItemMeta);
             NBTItem nbtItem = new NBTItem(localItemStack);
             NBTCompound comp = nbtItem.addCompound("upgrader");
+            NBTCompound comp2 = nbtItem.addCompound(spawnerType);
             comp.setString("displayName", displayname);
             comp.setInteger("modelNumber", modeldata);
-            nbtItem.applyNBT(localItemStack);
+            comp2.setString("displayName", displayname);
+            comp2.setInteger("modelNumber", modeldata);
+            return nbtItem.getItem();
         }
         localItemStack.setItemMeta(localItemMeta);
         return localItemStack;
@@ -112,10 +116,11 @@ public class Utils {
         Integer modelData = this.plugin.getConfig().getInt("SpawnerUpgraders." + Number + ".CustomModelData");
         String name = this.plugin.getConfig().getString("SpawnerUpgraders." + Number + ".Name");
         Boolean glow = this.plugin.getConfig().getBoolean("SpawnerUpgraders." + Number + ".Glow");
+        String spawnerType = this.plugin.getConfig().getString("SpawnerUpgraders." + Number + ".Spawner");
         ArrayList<String> upgraderLore = new ArrayList();
         for (String s : plugin.getMessageList("Spawner.Lore")) {
             upgraderLore.add(new Utils(plugin).addColor(s.replace("%TYPE%", new Utils(plugin).fixCase(type))));
         }
-        return createItem(material, "UPGRADER", "NONE", amount, modelData, name, upgraderLore, glow);
+        return createItem(material, "UPGRADER", spawnerType, amount, modelData, name, upgraderLore, glow);
     }
 }

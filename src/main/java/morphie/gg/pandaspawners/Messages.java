@@ -75,6 +75,10 @@ public class Messages implements Listener {
         cfg.addDefault("ReloadMessage", "&7Plugin has successfully been reloaded!");
         cfg.addDefault("SpawnerGiveMessage", "&7A &a%TYPE% Spawner &7has been given to you.");
         cfg.addDefault("UpgraderGiveMessage", "&7A &a%TYPE% Upgrader &7has been given to you.");
+        cfg.addDefault("MaxSpawnerMessage", "&7This spawner can no longer be upgraded!");
+        cfg.addDefault("InvalidUpgraderMessage", "&7This is not the correct spawner upgrader for this spawner!");
+        cfg.addDefault("InvalidUpgraderAmountMessage", "&7You do not have enough spawner upgraders to upgrade all &a%SPAWNER_AMOUNT% &7spawners!");
+        cfg.addDefault("SpawnerUpgradedMessage", "&7Spawner upgrade successful.");
 
         cfg.addDefault("Spawner.Name", "&2&lMob Spawner");
         List<String> spawner = new ArrayList<String>();

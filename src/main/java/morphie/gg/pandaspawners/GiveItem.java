@@ -15,7 +15,7 @@ public class GiveItem {
         this.plugin = plugin;
     }
 
-    public ItemStack giveItem (Player player, String type, String MobType, String amount) {
+    public ItemStack giveItem (Player player, boolean message, String type, String MobType, String amount) {
         if (type.equalsIgnoreCase("spawner")) {
             String mobName = MobType;
             EntityType etype = null;
@@ -27,6 +27,7 @@ public class GiveItem {
             }
             if (convertStringToInt(amount) <= 0) {
                 player.sendMessage(new Utils(plugin).addColor(plugin.getMessage("ErrorPrefix") + plugin.getMessage("InvalidAmount")));
+                return null;
             }
             Inventory inv = player.getInventory();
             ArrayList<String> spawnerLore = new ArrayList();
@@ -35,7 +36,9 @@ public class GiveItem {
             }
             if (player.getInventory().firstEmpty() >= 0) {
                 inv.addItem(new Utils(plugin).createItem("SPAWNER", "SPAWNER", MobType, Integer.parseInt(amount), 0, plugin.getMessage("Spawner.Name"), spawnerLore, true));
-                player.sendMessage(new Utils(plugin).addColor(plugin.getMessage("Prefix") + plugin.getMessage("SpawnerGiveMessage").replace("%TYPE%", new Utils(plugin).fixCase(MobType))));
+                if (message) {
+                    player.sendMessage(new Utils(plugin).addColor(plugin.getMessage("Prefix") + plugin.getMessage("SpawnerGiveMessage").replace("%TYPE%", new Utils(plugin).fixCase(MobType))));
+                }
             } else {
                 player.sendMessage(new Utils(plugin).addColor(plugin.getMessage("ErrorPrefix") + plugin.getMessage("InventoryFull")));
             }
@@ -50,6 +53,7 @@ public class GiveItem {
             }
             if (convertStringToInt(amount) <= 0) {
                 player.sendMessage(new Utils(plugin).addColor(plugin.getMessage("ErrorPrefix") + plugin.getMessage("InvalidAmount")));
+                return null;
             }
             Inventory inv2 = player.getInventory();
             if (player.getInventory().firstEmpty() >= 0) {
